@@ -14,11 +14,9 @@
     {{ end }}
     {{ range (where .Site.Pages "Type" "post") }}
     <item>
-
-      {{if isset .Params "Title"}}
-      
-	      <title>{{.Title}}{{end}}</title>
-
+      <title>
+	      {{if isset .Params "Title"}}{{.Title}}{{end}}
+      </title>
       <link>{{ .Permalink }}</link>
       <pubDate>{{ .Date.Format "Mon, 02 Jan 2006 15:04:05 -0700" | safeHTML }}</pubDate>
       {{ with .Site.Author.email }}<author>{{.}}{{ with $.Site.Author.name }} ({{.}}){{end}}</author>{{end}}
